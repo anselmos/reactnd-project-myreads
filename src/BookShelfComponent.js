@@ -3,9 +3,9 @@ import './App.css'
 import Book from "./Book";
 class BookShelfComponent extends React.Component {
   render() {
-    const booksRender = this.props.books.map(function(data) {
+    const booksRender = this.props.books.map(function(data, idx) {
         return (
-            <li>
+            <li key={idx}>
             <Book data={data} />
             </li>
         )

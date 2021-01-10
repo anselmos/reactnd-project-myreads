@@ -1,8 +1,13 @@
 import React from 'react'
 import './App.css'
+import * as BooksAPI from './BooksAPI'
 
 class Book extends React.Component {
-
+    handleShelfChanger(){
+        // FIXME check if this is the prefered way to make this happen
+        // BooksAPI.update(this.props.data, "currentlyReading")
+        //     .then(window.location.reload(false));
+    }
     render() {
         return (
             <div className="book">
@@ -14,7 +19,7 @@ class Book extends React.Component {
 
                     }}></div>
                     <div className="book-shelf-changer">
-                        <select>
+                        <select  onClick={this.handleShelfChanger.bind(this)}>
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
