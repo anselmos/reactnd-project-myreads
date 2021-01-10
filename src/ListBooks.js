@@ -26,6 +26,7 @@ class ListBooks extends React.Component {
                 }
             ]
           }
+            books={this.props.books}
           />
           <div className="open-search">
             <button onClick={this.handleAddBook.bind(this)}>Add a book</button>

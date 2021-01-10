@@ -3,10 +3,12 @@ import './App.css'
 import Book from "./Book";
 class BookShelfComponent extends React.Component {
   render() {
-    const booksRender = this.props.books.map(function(data, idx) {
-        return <li>
-        <Book bookTitle={data.bookTitle} bookAuthors={data.bookAuthors} />
-        </li>
+    const booksRender = this.props.books.map(function(data) {
+        return (
+            <li>
+            <Book data={data} />
+            </li>
+        )
         ;
     });
 
