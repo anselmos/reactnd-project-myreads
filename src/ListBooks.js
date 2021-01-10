@@ -15,7 +15,18 @@ class ListBooks extends React.Component {
           <div className="list-books-title">
             <h1>MyReads</h1>
           </div>
-          <ListBooksContent/>
+          <ListBooksContent booksCurrentlyReading={
+            [
+                {
+                bookTitle: 'To Kill A Mocking Bird',
+                bookAuthors: 'Harper Lee'
+                },                {
+                bookTitle: 'To Kill A Mockinaag Bird',
+                bookAuthors: 'Harper Lee'
+                }
+            ]
+          }
+          />
           <div className="open-search">
             <button onClick={this.handleAddBook.bind(this)}>Add a book</button>
           </div>

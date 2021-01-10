@@ -5,6 +5,7 @@ import BookShelfComponent from "./BookShelfComponent";
 class ListBooksContent extends React.Component {
 
   render() {
+    // const booksCurrentlyReading = this.props.books.filter(book => book.shelf == "currentlyReading")
     return (
 
       <div className="list-books-content">
