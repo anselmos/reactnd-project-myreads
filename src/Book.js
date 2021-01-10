@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
-
+import BookShelfChanger from "./BookShelfChanger";
 class Book extends React.Component {
-    handleShelfChanger(){
+    handleCallback(valueCalled){
         // FIXME check if this is the prefered way to make this happen
-        // BooksAPI.update(this.props.data, "currentlyReading")
-        //     .then(window.location.reload(false));
+        BooksAPI.update(this.props.data, valueCalled);
+            // .then(window.location.reload(false));
     }
     render() {
         return (
@@ -18,15 +18,7 @@ class Book extends React.Component {
                         backgroundImage: 'url(' +this.props.data.imageLinks.thumbnail +')'
 
                     }}></div>
-                    <div className="book-shelf-changer">
-                        <select  onClick={this.handleShelfChanger.bind(this)}>
-                            <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
-                        </select>
-                    </div>
+                <BookShelfChanger bookId={this.props.data.id} callback={this.handleCallback.bind(this)}/>
                 </div>
                 <div className="book-title">{this.props.data.title}</div>
                 {/* // TODO update authors to a list */}
