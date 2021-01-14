@@ -5,7 +5,7 @@ class BookShelfChanger extends React.Component {
     constructor() {
         super();
         this.state = {
-            'selected': 'none',
+            'selected': 'currentlyReading',
             'data': [
                 {'title': 'Currently Reading', 'value': 'currentlyReading'},
                 {'title': 'Want to Read', 'value': 'wantToRead'},
@@ -25,7 +25,7 @@ class BookShelfChanger extends React.Component {
         return (
         <div className="book-shelf-changer">
         <select
-            onChange={(val) => this.handleChange(val.target.value)}
+            onClick={(val) => this.handleChange(val.target.value)}
         >
             <option value="move" disabled>Move to...</option>
             {options}
