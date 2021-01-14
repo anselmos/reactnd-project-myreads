@@ -15,7 +15,7 @@ class ListBooks extends React.Component {
           <div className="list-books-title">
             <h1>MyReads</h1>
           </div>
-          <ListBooksContent books={this.props.books} />
+          <ListBooksContent books={this.props.books} handleBookUpdateCallback={this.props.handleBookUpdateCallback} />
           <div className="open-search">
             <button onClick={this.handleAddBook.bind(this)}>Add a book</button>
           </div>

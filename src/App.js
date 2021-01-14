@@ -13,6 +13,13 @@ class BooksApp extends React.Component {
     }
   }
 
+  handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
+      let copyFoo = [ ...this.state.data]; //create a new copy
+      BooksAPI.get(bookId).then(fetchData => {
+          copyFoo[stateBookId] = fetchData;
+          this.setState({data: copyFoo});
+      });
+  }
   componentDidMount() {
       BooksAPI.getAll()
           .then(currentData => this.setState({'data': currentData}));
@@ -24,7 +31,7 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           <SearchBooks books={this.state.data}/>
         ) : (
-          <ListBooks books={this.state.data}/>
+          <ListBooks books={this.state.data} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
         )}
       </div>
     );

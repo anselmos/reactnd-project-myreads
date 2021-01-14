@@ -3,10 +3,11 @@ import './App.css'
 import Book from "./Book";
 class BookShelfComponent extends React.Component {
   render() {
+    let handleBookCallback = this.props.handleBookUpdateCallback
     const booksRender = this.props.books.map(function(data, idx) {
         return (
             <li key={idx}>
-            <Book data={data} />
+            <Book stateBookId={idx} data={data} handleBookUpdateCallback={handleBookCallback} />
             </li>
         )
         ;

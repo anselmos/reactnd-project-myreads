@@ -2,11 +2,12 @@ import React from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 import BookShelfChanger from "./BookShelfChanger";
+import BookShelfComponent from "./BookShelfComponent";
 class Book extends React.Component {
     handleCallback(valueCalled){
         // FIXME check if this is the prefered way to make this happen
-        BooksAPI.update(this.props.data, valueCalled);
-            // .then(window.location.reload(false));
+        BooksAPI.update(this.props.data, valueCalled)
+            .then(this.props.handleBookUpdateCallback(this.props.stateBookId, this.props.data.id));
     }
     render() {
         return (
