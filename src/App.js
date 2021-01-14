@@ -14,6 +14,7 @@ class BooksApp extends React.Component {
   }
 
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
+      // TODO this is wrong and it fails multiple times :(
       let copyFoo = [ ...this.state.data]; //create a new copy
       BooksAPI.get(bookId).then(fetchData => {
           copyFoo[stateBookId] = fetchData;
@@ -22,7 +23,9 @@ class BooksApp extends React.Component {
   }
   componentDidMount() {
       BooksAPI.getAll()
-          .then(currentData => this.setState({'data': currentData}));
+          .then(currentData => {
+              this.setState({'data': currentData})
+          });
   }
 
   render() {
