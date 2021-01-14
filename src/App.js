@@ -4,6 +4,13 @@ import './App.css'
 import ListBooks from "./ListBooks";
 import SearchBooks from "./SearchBooks";
 
+function updateAllBooksState() {
+    BooksAPI.getAll()
+    .then(currentData => {
+        this.setState({'data': currentData})
+    });
+}
+
 class BooksApp extends React.Component {
   constructor () {
     super()
@@ -14,18 +21,19 @@ class BooksApp extends React.Component {
   }
 
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
+      updateAllBooksState.call(this);
+      /* This harder approach is not working properly yet
       // TODO this is wrong and it fails multiple times :(
       let copyFoo = [ ...this.state.data]; //create a new copy
       BooksAPI.get(bookId).then(fetchData => {
           copyFoo[stateBookId] = fetchData;
           this.setState({data: copyFoo});
       });
+
+       */
   }
   componentDidMount() {
-      BooksAPI.getAll()
-          .then(currentData => {
-              this.setState({'data': currentData})
-          });
+      updateAllBooksState.call(this);
   }
 
   render() {
