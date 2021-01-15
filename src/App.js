@@ -1,4 +1,5 @@
 import React from 'react'
+import {Route} from "react-router-dom";
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from "./ListBooks";
@@ -20,6 +21,12 @@ class BooksApp extends React.Component {
     }
   }
 
+  handleAddBookCallback(history){
+      history.push('/search')
+  }
+    handleCloseBookCallback(history){
+      history.push('/')
+  }
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
       updateAllBooksState.call(this);
       /* This harder approach is not working properly yet
@@ -39,11 +46,14 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <SearchBooks books={this.state.data}/>
-        ) : (
-          <ListBooks books={this.state.data} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
-        )}
+          <Route path='/' render={({history}) => (
+               <ListBooks handleAddBookCallback={this.handleAddBookCallback.bind(this, history)} books={this.state.data} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
+          )}
+            />
+          <Route path="/search" render={({history}) => (
+          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} books={this.state.data}/>
+          )}
+                 />
       </div>
     );
   }

@@ -1,14 +1,8 @@
 import React from 'react'
 import './App.css'
 import ListBooksContent from "./ListBooksContent";
+
 class ListBooks extends React.Component {
-  state = {
-    showSearchPage: false
-  }
-  handleAddBook() {
-    // TODO change into url /search
-    this.setState({ showSearchPage: true })
-  }
   render() {
     return (
         <div className="list-books">
@@ -17,7 +11,7 @@ class ListBooks extends React.Component {
           </div>
           <ListBooksContent books={this.props.books} handleBookUpdateCallback={this.props.handleBookUpdateCallback} />
           <div className="open-search">
-            <button onClick={this.handleAddBook.bind(this)}>Add a book</button>
+            <button onClick={this.props.handleAddBookCallback}>Add a book</button>
           </div>
         </div>
     );

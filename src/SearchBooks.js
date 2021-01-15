@@ -2,18 +2,11 @@ import React from 'react'
 import './App.css'
 
 class SearchBooks extends React.Component {
-  state = {
-    showSearchPage: false
-  }
-  handleCloseSearch(){
-      // TODO change into url /
-      this.setState({ showSearchPage: false });
-  }
   render() {
     return (
         <div className="search-books">
             <div className="search-books-bar">
-              <button className="close-search" onClick={this.handleCloseSearch.bind(this)}>Close</button>
+              <button className="close-search" onClick={this.props.handleCloseBookCallback}>Close</button>
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
