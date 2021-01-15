@@ -3,6 +3,7 @@ import './App.css'
 import Book from "./Book";
 class BookShelfComponent extends React.Component {
   render() {
+      // TODO is there any other way to make this callback without variable ?
     let handleBookCallback = this.props.handleBookUpdateCallback
     const booksRender = this.props.books.map(function(data, idx) {
         return (
