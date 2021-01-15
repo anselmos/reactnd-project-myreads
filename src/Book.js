@@ -16,7 +16,7 @@ class Book extends React.Component {
                     <div className="book-cover" style={{
                         width: 128,
                         height: 193,
-                        backgroundImage: 'url(' +this.props.data.imageLinks.thumbnail +')'
+                        backgroundImage: `url(${ this.props.data.imageLinks.thumbnail })`
 
                     }}></div>
                 <BookShelfChanger bookId={this.props.data.id} callback={this.handleCallback.bind(this)}/>
