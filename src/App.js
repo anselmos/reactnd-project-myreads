@@ -24,8 +24,15 @@ class BooksApp extends React.Component {
   handleAddBookCallback(history){
       history.push('/search')
   }
-    handleCloseBookCallback(history){
+  handleCloseBookCallback(history){
       history.push('/')
+      updateAllBooksState.call(this);
+  }
+  handleOnResultsCallback(query){
+    BooksAPI.search(query)
+    .then(currentData => {
+        this.setState({'data': currentData})
+    });
   }
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
       updateAllBooksState.call(this);
@@ -51,7 +58,7 @@ class BooksApp extends React.Component {
           )}
             />
           <Route path="/search" render={({history}) => (
-          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} books={this.state.data}/>
+          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback.bind(this)} books={this.state.data}/>
           )}
                  />
       </div>
