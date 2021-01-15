@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 import BookShelfChanger from "./BookShelfChanger";
-import BookShelfComponent from "./BookShelfComponent";
+
 class Book extends React.Component {
     handleCallback(valueCalled){
         // FIXME check if this is the prefered way to make this happen

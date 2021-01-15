@@ -18,8 +18,8 @@ class BookShelfChanger extends React.Component {
         this.props.callback(value);
     }
     render() {
-        const options = this.state.data.map(element => {
-            return <option value={element.value}>{element.title} </option>
+        const options = this.state.data.map(function(element, idx)  {
+            return <option key={idx} value={element.value}>{element.title} </option>
             }
         )
         return (

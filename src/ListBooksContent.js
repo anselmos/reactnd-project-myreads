@@ -5,7 +5,6 @@ import BookShelfComponent from "./BookShelfComponent";
 class ListBooksContent extends React.Component {
 
   render() {
-      console.log("List Books Conente", this.props.books)
     return (
 
       <div className="list-books-content">
