@@ -25,7 +25,7 @@ class BookShelfChanger extends React.Component {
         return (
         <div className="book-shelf-changer">
         <select
-            onClick={(val) => this.handleChange(val.target.value)}
+            onChange={(val) => this.handleChange(val.target.value)}
         >
             <option value="move" disabled>Move to...</option>
             {options}
