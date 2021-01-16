@@ -34,17 +34,28 @@ class BooksApp extends React.Component {
   }
   handleOnResultsCallback(query){
     BooksAPI.search(query)
-    .then(searchData => {
+    .then(
+        searchData => {
         let searchBooks = {};
-        searchData
-            .filter(
-            book => !Object.keys(this.state.data).includes(book.id)
-            )
-            .map(value =>
-                searchBooks[value.id] = value
-            )
-        this.setState({'searchBooks': searchBooks});
-    });
+        if(searchData.error === undefined || !searchData.error){
+            console.log(searchData);
+            searchData
+                .filter(
+                book => !Object.keys(this.state.data).includes(book.id)
+                )
+                .map(value =>
+                    searchBooks[value.id] = value
+                )
+            this.setState({'searchBooks': searchBooks});
+        }
+        },
+        error => {
+
+        }
+    )
+        .catch(error => {
+            this.setState({'searchBooks': {}});
+        });
   }
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
       updateAllBooksState.call(this);
@@ -66,11 +77,20 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
           <Route path='/' render={({history}) => (
-               <ListBooks handleAddBookCallback={this.handleAddBookCallback.bind(this, history)} books={this.state.data} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
+               <ListBooks
+                   handleAddBookCallback={this.handleAddBookCallback.bind(this, history)}
+                   books={this.state.data}
+                   handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}
+               />
           )}
             />
           <Route path="/search" render={({history}) => (
-          <SearchBooks searchBooks={this.state.searchBooks} handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
+          <SearchBooks
+              searchBooks={this.state.searchBooks}
+              handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)}
+              onSearchResultsCallback={this.handleOnResultsCallback}
+              handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}
+          />
           )}
                  />
       </div>
