@@ -19,6 +19,7 @@ class BooksApp extends React.Component {
         data: [],
       showSearchPage: false,
     }
+    this.handleOnResultsCallback = this.handleOnResultsCallback.bind(this)
   }
 
   handleAddBookCallback(history){
@@ -30,8 +31,16 @@ class BooksApp extends React.Component {
   }
   handleOnResultsCallback(query){
     BooksAPI.search(query)
-    .then(currentData => {
-        this.setState({'data': currentData})
+    .then(searchData => {
+        let deepCopyData = [ ...this.state.data]; //create a new copy
+        searchData.map(value => {
+            deepCopyData.push(value);
+        })
+        console.log(deepCopyData);
+        // deepCopyData[stateBookId] = fetchData;
+        this.setState({data: deepCopyData});
+        // console.log(searchData);
+        // this.setState({'data': currentData})
     });
   }
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
@@ -58,7 +67,7 @@ class BooksApp extends React.Component {
           )}
             />
           <Route path="/search" render={({history}) => (
-          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback.bind(this)} books={this.state.data}/>
+          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback} books={this.state.data}/>
           )}
                  />
       </div>
