@@ -9,13 +9,17 @@ class Book extends React.Component {
             .then(this.props.handleBookUpdateCallback(this.props.stateBookId, this.props.data.id));
     }
     render() {
+        let thumbnail = ""
+        if(this.props.data.imageLinks !== undefined){
+            thumbnail = this.props.data.imageLinks.thumbnail;
+        }
         return (
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover" style={{
                         width: 128,
                         height: 193,
-                        backgroundImage: `url(${ this.props.data.imageLinks.thumbnail })`
+                        backgroundImage: `url(${ thumbnail})`
 
                     }}></div>
                 <BookShelfChanger bookId={this.props.data.id} callback={this.handleCallback.bind(this)}/>
