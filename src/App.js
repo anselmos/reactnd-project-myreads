@@ -35,7 +35,6 @@ class BooksApp extends React.Component {
   handleOnResultsCallback(query){
     BooksAPI.search(query)
     .then(searchData => {
-        let deepCopyData = {...this.state.data};
         let searchBooks = {};
         searchData.map(value => {
             if(!Object.keys(this.state.data).includes(value.id)){

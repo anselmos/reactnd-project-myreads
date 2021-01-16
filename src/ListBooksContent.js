@@ -10,7 +10,6 @@ class ListBooksContent extends React.Component {
     let currentlyReadingBooks = this.filter_books_dict_by_shelf(this.props.books,"currentlyReading");
     let wantToReadBooks = this.filter_books_dict_by_shelf(this.props.books,"wantToRead");
     let readBooks = this.filter_books_dict_by_shelf(this.props.books,"read");
-    let notInShelfBooks = this.filter_books_dict_by_shelf(this.props.books,"undefined");
     return (
 
       <div className="list-books-content">
@@ -18,7 +17,6 @@ class ListBooksContent extends React.Component {
           <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Currently Reading'} books={currentlyReadingBooks} />
           <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Want to Read'} books={wantToReadBooks} />
           <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Read'} books={readBooks} />
-          {/*<BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'NotInSelf'} books={notInShelfBooks} />*/}
         </div>
       </div>
     );
