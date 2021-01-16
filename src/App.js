@@ -9,9 +9,9 @@ function updateAllBooksState() {
     BooksAPI.getAll()
     .then(allUserBooks => {
         let data = {}
-        allUserBooks.map(value => {
-            data[value.id] = value;
-        })
+        allUserBooks.map(value =>
+            data[value.id] = value
+        )
         this.setState({'data': data});
     });
 }
@@ -40,9 +40,9 @@ class BooksApp extends React.Component {
             .filter(
             book => !Object.keys(this.state.data).includes(book.id)
             )
-            .map(value => {
-                searchBooks[value.id] = value;
-            })
+            .map(value =>
+                searchBooks[value.id] = value
+            )
         this.setState({'searchBooks': searchBooks});
     });
   }
