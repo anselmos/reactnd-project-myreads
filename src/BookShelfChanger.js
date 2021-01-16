@@ -2,20 +2,23 @@ import React from 'react'
 import './App.css'
 
 class BookShelfChanger extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            'selected': 'currentlyReading',
-            'data': [
+            value: null,
+            data : [
                 {'title': 'Currently Reading', 'value': 'currentlyReading'},
                 {'title': 'Want to Read', 'value': 'wantToRead'},
                 {'title': 'Read', 'value': 'read'},
                 {'title': 'None', 'value': 'none'},
-            ]
-        }
+            ],
+        };
+
+        this.handleChange = this.handleChange.bind(this);
     }
-    handleChange(value){
-        this.props.callback(value);
+    handleChange(event) {
+        this.setState({value: event.target.value});
+        this.props.callback(event.target.value);
     }
     render() {
         const options = this.state.data.map(function(element, idx)  {
@@ -26,9 +29,9 @@ class BookShelfChanger extends React.Component {
         return (
         <div className="book-shelf-changer">
         <select
-            onChange={(val) => this.handleChange(val.target.value)}
+            value={null}
+            onChange={this.handleChange}
         >
-
             <option value="move" disabled selected>Move to...</option>
             {options}
         </select>
