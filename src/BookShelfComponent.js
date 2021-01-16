@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css'
 import Book from "./Book";
+// TODO move to function component.
 class BookShelfComponent extends React.Component {
   render() {
-      // TODO is there any other way to make this callback without variable ?
     let handleBookCallback = this.props.handleBookUpdateCallback
-    const booksRender = this.props.books.map(function(data, idx) {
+    const booksRender = Object.entries(this.props.books).map(function([bookId, data], idx) {
         return (
             <li key={idx}>
             <Book stateBookId={idx} data={data} handleBookUpdateCallback={handleBookCallback.bind(this)} />

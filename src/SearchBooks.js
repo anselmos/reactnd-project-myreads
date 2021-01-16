@@ -1,11 +1,24 @@
 import React from 'react'
 import './App.css'
+import Book from "./Book";
 
 class SearchBooks extends React.Component {
     onSearchChange(query){
         this.props.onSearchResultsCallback(query)
     }
   render() {
+        let handleBookCallback = this.props.handleBookUpdateCallback
+      let searchBooks;
+      if(this.props.searchBooks){
+        searchBooks = Object.entries(this.props.searchBooks).map(function([bookId, data], idx) {
+            return (
+                <li key={idx}>
+                <Book stateBookId={idx} data={data} handleBookUpdateCallback={handleBookCallback.bind(this)} />
+                </li>
+            );
+        });
+      }
+
     return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -24,7 +37,7 @@ class SearchBooks extends React.Component {
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">{searchBooks}</ol>
             </div>
         </div>
     );

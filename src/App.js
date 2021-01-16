@@ -7,19 +7,22 @@ import SearchBooks from "./SearchBooks";
 
 function updateAllBooksState() {
     BooksAPI.getAll()
-    .then(currentData => {
-        this.setState({'data': currentData});
+    .then(allUserBooks => {
+        let data = {}
+        allUserBooks.map(value => {
+            data[value.id] = value;
+        })
+        this.setState({'data': data});
     });
 }
 
 class BooksApp extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props);
     this.state = {
-        data: [],
-      showSearchPage: false,
-    }
-    this.handleOnResultsCallback = this.handleOnResultsCallback.bind(this)
+        data: {},
+    };
+    this.handleOnResultsCallback = this.handleOnResultsCallback.bind(this);
   }
 
   handleAddBookCallback(history){
@@ -32,15 +35,14 @@ class BooksApp extends React.Component {
   handleOnResultsCallback(query){
     BooksAPI.search(query)
     .then(searchData => {
-        let deepCopyData = [ ...this.state.data]; //create a new copy
+        let deepCopyData = {...this.state.data};
+        let searchBooks = {};
         searchData.map(value => {
-            deepCopyData.push(value);
+            if(!Object.keys(this.state.data).includes(value.id)){
+                searchBooks[value.id] = value;
+            }
         })
-        console.log(deepCopyData);
-        // deepCopyData[stateBookId] = fetchData;
-        this.setState({data: deepCopyData});
-        // console.log(searchData);
-        // this.setState({'data': currentData})
+        this.setState({'searchBooks': searchBooks});
     });
   }
   handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
@@ -67,7 +69,7 @@ class BooksApp extends React.Component {
           )}
             />
           <Route path="/search" render={({history}) => (
-          <SearchBooks handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback} books={this.state.data}/>
+          <SearchBooks searchBooks={this.state.searchBooks} handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)} onSearchResultsCallback={this.handleOnResultsCallback} handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}/>
           )}
                  />
       </div>
