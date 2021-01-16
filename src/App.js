@@ -36,11 +36,13 @@ class BooksApp extends React.Component {
     BooksAPI.search(query)
     .then(searchData => {
         let searchBooks = {};
-        searchData.map(value => {
-            if(!Object.keys(this.state.data).includes(value.id)){
+        searchData
+            .filter(
+            book => !Object.keys(this.state.data).includes(book.id)
+            )
+            .map(value => {
                 searchBooks[value.id] = value;
-            }
-        })
+            })
         this.setState({'searchBooks': searchBooks});
     });
   }
