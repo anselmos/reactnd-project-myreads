@@ -5,14 +5,18 @@ import BookShelfComponent from "./BookShelfComponent";
 class ListBooksContent extends React.Component {
 
   render() {
+    let currentlyReadingBooks = this.props.books.filter(elt => elt.shelf==="currentlyReading");
+    let wantToReadBooks = this.props.books.filter(elt => elt.shelf==="wantToRead");
+    let readBooks = this.props.books.filter(elt => elt.shelf==="read");
+    let notInShelfBooks = this.props.books.filter(elt => (typeof(elt.shelf) === 'undefined'));
     return (
 
       <div className="list-books-content">
         <div>
-          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback} name={'Currently Reading'} books={this.props.books.filter(elt => elt.shelf==="currentlyReading")} />
-          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback} name={'Want to Read'} books={this.props.books.filter(elt => elt.shelf==="wantToRead")} />
-          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback} name={'Read'} books={this.props.books.filter(elt => elt.shelf==="read")} />
-          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback} name={'NotInSelf'} books={this.props.books.filter(elt => (typeof(elt.shelf) === 'undefined'))} />
+          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Currently Reading'} books={currentlyReadingBooks} />
+          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Want to Read'} books={wantToReadBooks} />
+          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'Read'} books={readBooks} />
+          <BookShelfComponent handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} name={'NotInSelf'} books={notInShelfBooks} />
         </div>
       </div>
     );

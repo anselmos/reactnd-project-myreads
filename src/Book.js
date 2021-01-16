@@ -5,7 +5,6 @@ import BookShelfChanger from "./BookShelfChanger";
 
 class Book extends React.Component {
     handleCallback(valueCalled){
-        // FIXME check if this is the prefered way to make this happen
         BooksAPI.update(this.props.data, valueCalled)
             .then(this.props.handleBookUpdateCallback(this.props.stateBookId, this.props.data.id));
     }

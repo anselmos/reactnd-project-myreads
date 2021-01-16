@@ -9,7 +9,7 @@ class ListBooks extends React.Component {
           <div className="list-books-title">
             <h1>MyReads</h1>
           </div>
-          <ListBooksContent books={this.props.books} handleBookUpdateCallback={this.props.handleBookUpdateCallback} />
+          <ListBooksContent books={this.props.books} handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)} />
           <div className="open-search">
             <button onClick={this.props.handleAddBookCallback}>Add a book</button>
           </div>

@@ -8,7 +8,7 @@ class BookShelfComponent extends React.Component {
     const booksRender = this.props.books.map(function(data, idx) {
         return (
             <li key={idx}>
-            <Book stateBookId={idx} data={data} handleBookUpdateCallback={handleBookCallback} />
+            <Book stateBookId={idx} data={data} handleBookUpdateCallback={handleBookCallback.bind(this)} />
             </li>
         )
         ;

@@ -8,7 +8,7 @@ import SearchBooks from "./SearchBooks";
 function updateAllBooksState() {
     BooksAPI.getAll()
     .then(currentData => {
-        this.setState({'data': currentData})
+        this.setState({'data': currentData});
     });
 }
 

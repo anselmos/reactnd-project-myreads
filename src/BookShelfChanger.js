@@ -22,12 +22,14 @@ class BookShelfChanger extends React.Component {
             return <option key={idx} value={element.value}>{element.title} </option>
             }
         )
+        // I wanted to use defaltValue in option but it is strangely not working
         return (
         <div className="book-shelf-changer">
         <select
             onChange={(val) => this.handleChange(val.target.value)}
         >
-            <option value="move" disabled>Move to...</option>
+
+            <option value="move" disabled selected>Move to...</option>
             {options}
         </select>
         </div>
