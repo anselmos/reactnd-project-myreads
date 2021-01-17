@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "../App";
 
 /** 
  This course is not designed to teach Test Driven Development. 
@@ -9,6 +9,8 @@ import App from "./App";
 **/
 
 it("renders without crashing", () => {
+  // Fixes temporarily issue with fromEntries is not a function.
+  Object.fromEntries = l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {});
   const div = document.createElement("div");
   ReactDOM.render(<App />, div);
 });

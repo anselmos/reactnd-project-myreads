@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import * as BooksAPI from "./api/BooksAPI";
 import "./App.css";
 import ListBooks from "./components/ListBooks";
@@ -58,6 +58,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
+        <BrowserRouter>
         <Switch>
           <Route
             exact
@@ -93,6 +94,7 @@ class BooksApp extends React.Component {
             )}
           />
         </Switch>
+          </BrowserRouter>
       </div>
     );
   }
