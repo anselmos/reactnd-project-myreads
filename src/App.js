@@ -29,23 +29,21 @@ class BooksApp extends React.Component {
     history.push("/");
     updateAllBooksState.call(this);
   }
-  handleOnResultsCallback(query) {
-    BooksAPI.search(query)
-      .then(
-        (searchData) => {
-          let searchBooks = {};
-          if (searchData.error === undefined || !searchData.error) {
-            searchData
-              .filter((book) => !Object.keys(this.state.data).includes(book.id))
-              .map((value) => (searchBooks[value.id] = value));
-            this.setState({ searchBooks: searchBooks });
-          }
-        },
-        (error) => {}
-      )
-      .catch((error) => {
-        this.setState({ searchBooks: {} });
-      });
+  async handleOnResultsCallback(query) {
+    const searchData = await BooksAPI.search(query);
+
+    let searchBooks = {};
+    if (
+      searchData &&
+      (typeof searchData.error === undefined || !searchData.error)
+    ) {
+      searchData
+        .filter((book) => !Object.keys(this.state.data).includes(book.id))
+        .map((value) => (searchBooks[value.id] = value));
+      this.setState({ searchBooks: searchBooks });
+    } else {
+      this.setState({ searchBooks: {} });
+    }
   }
   handleAppStateCallbackOnBookUpdate(bookId, valueCalled) {
     let copyData = { ...this.state.data };
