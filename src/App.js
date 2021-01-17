@@ -5,12 +5,11 @@ import "./App.css";
 import ListBooks from "./ListBooks";
 import SearchBooks from "./SearchBooks";
 
-function updateAllBooksState() {
-  BooksAPI.getAll().then((allUserBooks) => {
-    let data = {};
-    allUserBooks.map((value) => (data[value.id] = value));
-    this.setState({ data: data });
-  });
+async function updateAllBooksState() {
+  let allUserBooks = await BooksAPI.getAll();
+  let data = {};
+  allUserBooks.map((value) => (data[value.id] = value));
+  this.setState({ data: data });
 }
 
 class BooksApp extends React.Component {
