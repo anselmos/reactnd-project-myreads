@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import * as BooksAPI from "./BooksAPI";
+import * as BooksAPI from "./api/BooksAPI";
 import "./App.css";
-import ListBooks from "./ListBooks";
-import SearchBooks from "./SearchBooks";
+import ListBooks from "./components/ListBooks";
+import SearchBooks from "./components/SearchBooks";
 
 async function updateAllBooksState() {
   let allUserBooks = await BooksAPI.getAll();
