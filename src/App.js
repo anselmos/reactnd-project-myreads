@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from "./ListBooks";
@@ -70,23 +70,25 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-          <Route path='/' render={({history}) => (
+          <Switch>
+          <Route exact path='/' render={({history}) => (
                <ListBooks
                    handleAddBookCallback={this.handleAddBookCallback.bind(this, history)}
                    books={this.state.data}
                    handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}
                />
-          )}
+            )}
             />
-          <Route path="/search" render={({history}) => (
-          <SearchBooks
-              searchBooks={this.state.searchBooks}
-              handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)}
-              onSearchResultsCallback={this.handleOnResultsCallback}
-              handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}
-          />
-          )}
-                 />
+          <Route exact path="/search" render={({history}) => (
+              <SearchBooks
+                  searchBooks={this.state.searchBooks}
+                  handleCloseBookCallback={this.handleCloseBookCallback.bind(this, history)}
+                  onSearchResultsCallback={this.handleOnResultsCallback}
+                  handleBookUpdateCallback={this.handleAppStateCallbackOnBookUpdate.bind(this)}
+              />
+             )}
+         />
+         </Switch>
       </div>
     );
   }
