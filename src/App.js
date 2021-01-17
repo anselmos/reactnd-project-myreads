@@ -38,7 +38,6 @@ class BooksApp extends React.Component {
         searchData => {
         let searchBooks = {};
         if(searchData.error === undefined || !searchData.error){
-            console.log(searchData);
             searchData
                 .filter(
                 book => !Object.keys(this.state.data).includes(book.id)
@@ -57,17 +56,12 @@ class BooksApp extends React.Component {
             this.setState({'searchBooks': {}});
         });
   }
-  handleAppStateCallbackOnBookUpdate(stateBookId, bookId){
-      updateAllBooksState.call(this);
-      /* This harder approach is not working properly yet
-      // TODO this is wrong and it fails multiple times :(
-      let copyFoo = [ ...this.state.data]; //create a new copy
-      BooksAPI.get(bookId).then(fetchData => {
-          copyFoo[stateBookId] = fetchData;
-          this.setState({data: copyFoo});
-      });
-
-       */
+  handleAppStateCallbackOnBookUpdate(bookId, valueCalled){
+      let copyData = {...this.state.data};
+      let bookData = {...this.state.data[bookId]};
+      bookData.shelf = valueCalled
+      copyData[bookId] = bookData
+      this.setState({data:  copyData})
   }
   componentDidMount() {
       updateAllBooksState.call(this);

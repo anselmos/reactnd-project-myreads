@@ -6,7 +6,7 @@ import BookShelfChanger from "./BookShelfChanger";
 class Book extends React.Component {
     handleCallback(valueCalled){
         BooksAPI.update(this.props.data, valueCalled)
-            .then(this.props.handleBookUpdateCallback(this.props.stateBookId, this.props.data.id));
+            .then(this.props.handleBookUpdateCallback(this.props.data.id, valueCalled));
     }
     render() {
         let thumbnail = ""
