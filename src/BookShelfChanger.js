@@ -5,7 +5,6 @@ class BookShelfChanger extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: null,
             data : [
                 {'title': 'Currently Reading', 'value': 'currentlyReading'},
                 {'title': 'Want to Read', 'value': 'wantToRead'},
