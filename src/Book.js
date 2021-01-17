@@ -4,10 +4,9 @@ import * as BooksAPI from "./BooksAPI";
 import BookShelfChanger from "./BookShelfChanger";
 
 class Book extends React.Component {
-  handleCallback(valueCalled) {
-    BooksAPI.update(this.props.data, valueCalled).then(
-      this.props.handleBookUpdateCallback(this.props.data.id, valueCalled)
-    );
+  async handleCallback(valueCalled) {
+    await BooksAPI.update(this.props.data, valueCalled);
+    this.props.handleBookUpdateCallback(this.props.data.id, valueCalled);
   }
   render() {
     let thumbnail = "";
