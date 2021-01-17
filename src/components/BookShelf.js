@@ -2,7 +2,7 @@ import React from "react";
 import "./BookShelf.css";
 import Book from "./Book";
 // TODO move to function component.
-class BookShelfComponent extends React.Component {
+class BookShelf extends React.Component {
   render() {
     let handleBookCallback = this.props.handleBookUpdateCallback;
     const booksRender = Object.entries(this.props.books).map(function (
@@ -31,4 +31,4 @@ class BookShelfComponent extends React.Component {
   }
 }
 
-export default BookShelfComponent;
+export default BookShelf;

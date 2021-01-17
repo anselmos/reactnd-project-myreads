@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import BookShelfComponent from "./BookShelfComponent";
+import BookShelf from "./BookShelf";
 
 class ListBooksContent extends React.Component {
   filter_books_dict_by_shelf(data, shelf) {
@@ -21,21 +21,21 @@ class ListBooksContent extends React.Component {
     return (
       <div className="list-books-content">
         <div>
-          <BookShelfComponent
+          <BookShelf
             handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
               this
             )}
             name={"Currently Reading"}
             books={currentlyReadingBooks}
           />
-          <BookShelfComponent
+          <BookShelf
             handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
               this
             )}
             name={"Want to Read"}
             books={wantToReadBooks}
           />
-          <BookShelfComponent
+          <BookShelf
             handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
               this
             )}
