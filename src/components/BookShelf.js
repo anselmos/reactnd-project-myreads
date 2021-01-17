@@ -1,11 +1,10 @@
 import React from "react";
 import "./BookShelf.css";
 import Book from "./Book";
-// TODO move to function component.
-class BookShelf extends React.Component {
-  render() {
-    let handleBookCallback = this.props.handleBookUpdateCallback;
-    const booksRender = Object.entries(this.props.books).map(function (
+
+function BookShelf(props){
+    let handleBookCallback = props.handleBookUpdateCallback;
+    const booksRender = Object.entries(props.books).map(function (
       [bookId, data],
       idx
     ) {
@@ -22,13 +21,11 @@ class BookShelf extends React.Component {
 
     return (
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{this.props.name}</h2>
+        <h2 className="bookshelf-title">{props.name}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">{booksRender}</ol>
         </div>
       </div>
     );
   }
-}
-
 export default BookShelf;
