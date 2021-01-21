@@ -4,11 +4,7 @@ import Book from "./Book";
 
 function BookShelf(props){
     let handleBookCallback = props.handleBookUpdateCallback;
-    const booksRender = Object.entries(props.books).map(function (
-      [bookId, data],
-      idx
-    ) {
-      return (
+    const booksRender = Object.entries(props.books).map(([bookId, data], idx) => (
         <li key={idx}>
           <Book
             stateBookId={idx}
@@ -16,8 +12,7 @@ function BookShelf(props){
             handleBookUpdateCallback={handleBookCallback.bind(this)}
           />
         </li>
-      );
-    });
+    ));
 
     return (
       <div className="bookshelf">
