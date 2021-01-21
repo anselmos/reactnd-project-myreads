@@ -1,18 +1,62 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
+
 import BookShelf from "../components/BookShelf";
 
-function handleBookUpdateCallback(){
-
+function handleBookUpdateCallback() {}
+let oneBook = {
+    "bookId": {"title": "First Book", "shelf": "read"},
 }
-it("renders all books", () => {
+let container = null;
+beforeEach(() => {
   // Fixes temporarily issue with fromEntries is not a function.
   Object.fromEntries = l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {});
-  const div = document.createElement("div");
-  ReactDOM.render(
+
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+it("Render empty BookShelf", () => {
+  render(
       <BookShelf
-          handleBookUpdateCallbac={handleBookUpdateCallback.bind(this)}
+          handleBookUpdateCallback={handleBookUpdateCallback.bind(this)}
           name={"Test"}
           books={{}}
-      />, div);
+      />, container
+  );
+  let books_grid_container = container.querySelector("div")
+      .querySelector("div")
+      .querySelector("ol")
+
+  expect(
+      books_grid_container.className
+  ).toBe("books-grid");
+
+  expect(
+      books_grid_container.textContent
+  ).toContain("");
+});
+
+
+
+it("Render one book in BookShelf", () => {
+  render(
+      <BookShelf
+          handleBookUpdateCallback={handleBookUpdateCallback.bind(this)}
+          name={"Test"}
+          books={oneBook}
+      />, container
+  );
+  let books_grid_container = container.querySelector("div")
+      .querySelector("div")
+      .querySelector("ol")
+
+  expect(
+      books_grid_container.className
+  ).toBe("books-grid");
+
+  expect(
+      books_grid_container.textContent
+  ).toContain(oneBook["bookId"].title);
 });
