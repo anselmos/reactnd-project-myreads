@@ -2,6 +2,7 @@ import React from "react";
 import "./Book.css";
 import * as BooksAPI from "../api/BooksAPI";
 import BookShelfChanger from "./BookShelfChanger";
+import PropTypes from "prop-types";
 
 class Book extends React.Component {
   async handleCallback(valueCalled) {
@@ -36,5 +37,8 @@ class Book extends React.Component {
     );
   }
 }
-
+Book.propTypes = {
+  data: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default Book;

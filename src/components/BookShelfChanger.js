@@ -41,6 +41,6 @@ class BookShelfChanger extends React.Component {
 }
 
 BookShelfChanger.propTypes = {
-  callback: PropTypes.func
+  callback: PropTypes.func.isRequired
 }
 export default BookShelfChanger;

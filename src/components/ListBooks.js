@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import ListBooksContent from "./ListBooksContent";
+import PropTypes from "prop-types";
 
 const ListBooks  = ({
 books,
@@ -21,4 +22,10 @@ handleAddBookCallback,
     </div>
 
 )
+
+ListBooks.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+  handleAddBookCallback: PropTypes.func.isRequired,
+}
 export default ListBooks;

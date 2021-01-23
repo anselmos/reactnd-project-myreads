@@ -1,6 +1,7 @@
 import React from "react";
 import "./BookShelf.css";
 import Book from "./Book";
+import PropTypes from "prop-types";
 
 function BookShelf(props){
     let handleBookCallback = props.handleBookUpdateCallback;
@@ -23,4 +24,8 @@ function BookShelf(props){
       </div>
     );
   }
+BookShelf.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default BookShelf;
