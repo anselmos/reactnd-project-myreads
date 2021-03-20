@@ -1,13 +1,14 @@
 import React from "react";
 import "./BookShelf.css";
 import Book from "./Book";
+import PropTypes from "prop-types";
 
 function BookShelf(props){
     let handleBookCallback = props.handleBookUpdateCallback;
-    const booksRender = Object.entries(props.books).map(([bookId, data], idx) => (
-        <li key={idx}>
+    const booksRender = Object.entries(props.books).map(([bookId, data], _) => (
+        <li key={bookId}>
           <Book
-            stateBookId={idx}
+            stateBookId={bookId}
             data={data}
             handleBookUpdateCallback={handleBookCallback.bind(this)}
           />
@@ -23,4 +24,8 @@ function BookShelf(props){
       </div>
     );
   }
+BookShelf.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default BookShelf;

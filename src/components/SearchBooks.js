@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchBooks.css";
 import Book from "./Book";
+import PropTypes from "prop-types";
 
 class SearchBooks extends React.Component {
   onSearchChange(query) {
@@ -58,5 +59,9 @@ class SearchBooks extends React.Component {
     );
   }
 }
-
+SearchBooks.propTypes = {
+  searchBooks: PropTypes.object,
+  onSearchResultsCallback: PropTypes.func.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default SearchBooks;

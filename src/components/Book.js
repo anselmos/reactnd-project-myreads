@@ -2,6 +2,7 @@ import React from "react";
 import "./Book.css";
 import * as BooksAPI from "../api/BooksAPI";
 import BookShelfChanger from "./BookShelfChanger";
+import PropTypes from "prop-types";
 
 class Book extends React.Component {
   async handleCallback(valueCalled) {
@@ -13,7 +14,11 @@ class Book extends React.Component {
     if (this.props.data.imageLinks !== undefined) {
       thumbnail = this.props.data.imageLinks.thumbnail;
     }
-    return (
+    let authors = "";
+    if (this.props.data.authors !== undefined){
+        authors = this.props.data.authors.join(", ");
+    }
+      return (
       <div className="book">
         <div className="book-top">
           <div
@@ -30,11 +35,13 @@ class Book extends React.Component {
           />
         </div>
         <div className="book-title">{this.props.data.title}</div>
-        {/* // TODO update authors to a list */}
-        <div className="book-authors">{this.props.data.authors}</div>
+        <div className="book-authors">{authors}</div>
       </div>
     );
   }
 }
-
+Book.propTypes = {
+  data: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default Book;

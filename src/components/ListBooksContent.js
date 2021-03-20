@@ -1,6 +1,8 @@
 import React from "react";
 import "../App.css";
 import BookShelf from "./BookShelf";
+import * as Constants from "../Constants";
+import PropTypes from "prop-types";
 
 class ListBooksContent extends React.Component {
   filter_books_dict_by_shelf(data, shelf) {
@@ -8,44 +10,28 @@ class ListBooksContent extends React.Component {
       Object.entries(data).filter(([k, v]) => v.shelf === shelf)
     );
   }
+
   render() {
-    let currentlyReadingBooks = this.filter_books_dict_by_shelf(
-      this.props.books,
-      "currentlyReading"
-    );
-    let wantToReadBooks = this.filter_books_dict_by_shelf(
-      this.props.books,
-      "wantToRead"
-    );
-    let readBooks = this.filter_books_dict_by_shelf(this.props.books, "read");
+    let allBookShelfs = Constants.SHELVES.map(({title, id}, _) => (
+      <BookShelf
+        handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(this)}
+        name={title}
+        books={this.filter_books_dict_by_shelf(this.props.books, id)}
+        key={id}
+      />
+    ))
     return (
       <div className="list-books-content">
         <div>
-          <BookShelf
-            handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
-              this
-            )}
-            name={"Currently Reading"}
-            books={currentlyReadingBooks}
-          />
-          <BookShelf
-            handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
-              this
-            )}
-            name={"Want to Read"}
-            books={wantToReadBooks}
-          />
-          <BookShelf
-            handleBookUpdateCallback={this.props.handleBookUpdateCallback.bind(
-              this
-            )}
-            name={"Read"}
-            books={readBooks}
-          />
+          {allBookShelfs}
+
         </div>
       </div>
     );
   }
 }
-
+ListBooksContent.propTypes = {
+  books: PropTypes.object.isRequired,
+  handleBookUpdateCallback: PropTypes.func.isRequired,
+}
 export default ListBooksContent;
