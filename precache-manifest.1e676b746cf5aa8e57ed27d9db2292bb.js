@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "cbd073b90b715d9d9d95",
-    "url": "/reactnd-project-myreads/static/css/main.30185b3a.chunk.css"
+    "revision": "2e7bd5a0db58f8571210",
+    "url": "/reactnd-project-myreads/static/css/main.a1304f12.chunk.css"
   },
   {
-    "revision": "cbd073b90b715d9d9d95",
-    "url": "/reactnd-project-myreads/static/js/main.cbd073b9.chunk.js"
+    "revision": "2e7bd5a0db58f8571210",
+    "url": "/reactnd-project-myreads/static/js/main.2e7bd5a0.chunk.js"
   },
   {
-    "revision": "19d6f253a2f0dc5096c6",
-    "url": "/reactnd-project-myreads/static/js/1.19d6f253.chunk.js"
+    "revision": "7ab942e381c0b53036f5",
+    "url": "/reactnd-project-myreads/static/js/1.7ab942e3.chunk.js"
   },
   {
     "revision": "d2f8cf40e53ea2d3746f",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/reactnd-project-myreads/static/media/arrow-back.3687aa98.svg"
   },
   {
-    "revision": "4597e4d21ef9c187ac089a4319a04a81",
+    "revision": "88833a197737f485b48c828d92657e21",
     "url": "/reactnd-project-myreads/index.html"
   }
 ];

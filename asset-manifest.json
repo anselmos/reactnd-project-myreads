@@ -1,16 +1,16 @@
 {
-  "main.css": "/reactnd-project-myreads/static/css/main.30185b3a.chunk.css",
-  "main.js": "/reactnd-project-myreads/static/js/main.cbd073b9.chunk.js",
-  "main.js.map": "/reactnd-project-myreads/static/js/main.cbd073b9.chunk.js.map",
-  "static/js/1.19d6f253.chunk.js": "/reactnd-project-myreads/static/js/1.19d6f253.chunk.js",
-  "static/js/1.19d6f253.chunk.js.map": "/reactnd-project-myreads/static/js/1.19d6f253.chunk.js.map",
+  "main.css": "/reactnd-project-myreads/static/css/main.a1304f12.chunk.css",
+  "main.js": "/reactnd-project-myreads/static/js/main.2e7bd5a0.chunk.js",
+  "main.js.map": "/reactnd-project-myreads/static/js/main.2e7bd5a0.chunk.js.map",
+  "static/js/1.7ab942e3.chunk.js": "/reactnd-project-myreads/static/js/1.7ab942e3.chunk.js",
+  "static/js/1.7ab942e3.chunk.js.map": "/reactnd-project-myreads/static/js/1.7ab942e3.chunk.js.map",
   "runtime~main.js": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js",
   "runtime~main.js.map": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js.map",
   "static/media/App.css": "/reactnd-project-myreads/static/media/add.bb9363b8.svg",
   "static/media/BookShelfChanger.css": "/reactnd-project-myreads/static/media/arrow-drop-down.78c6f53b.svg",
   "static/media/SearchBooks.css": "/reactnd-project-myreads/static/media/arrow-back.3687aa98.svg",
-  "static/css/main.30185b3a.chunk.css.map": "/reactnd-project-myreads/static/css/main.30185b3a.chunk.css.map",
+  "static/css/main.a1304f12.chunk.css.map": "/reactnd-project-myreads/static/css/main.a1304f12.chunk.css.map",
   "index.html": "/reactnd-project-myreads/index.html",
-  "precache-manifest.0e9b5e3f91d473749afedbece81c14f5.js": "/reactnd-project-myreads/precache-manifest.0e9b5e3f91d473749afedbece81c14f5.js",
+  "precache-manifest.1e676b746cf5aa8e57ed27d9db2292bb.js": "/reactnd-project-myreads/precache-manifest.1e676b746cf5aa8e57ed27d9db2292bb.js",
   "service-worker.js": "/reactnd-project-myreads/service-worker.js"
 }
