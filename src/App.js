@@ -58,7 +58,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <BrowserRouter>
+        <BrowserRouter  basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route
             exact
