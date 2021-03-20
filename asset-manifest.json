@@ -1,9 +1,9 @@
 {
   "main.css": "/reactnd-project-myreads/static/css/main.30185b3a.chunk.css",
-  "main.js": "/reactnd-project-myreads/static/js/main.38c8fd7d.chunk.js",
-  "main.js.map": "/reactnd-project-myreads/static/js/main.38c8fd7d.chunk.js.map",
-  "static/js/1.4338ef75.chunk.js": "/reactnd-project-myreads/static/js/1.4338ef75.chunk.js",
-  "static/js/1.4338ef75.chunk.js.map": "/reactnd-project-myreads/static/js/1.4338ef75.chunk.js.map",
+  "main.js": "/reactnd-project-myreads/static/js/main.cbd073b9.chunk.js",
+  "main.js.map": "/reactnd-project-myreads/static/js/main.cbd073b9.chunk.js.map",
+  "static/js/1.19d6f253.chunk.js": "/reactnd-project-myreads/static/js/1.19d6f253.chunk.js",
+  "static/js/1.19d6f253.chunk.js.map": "/reactnd-project-myreads/static/js/1.19d6f253.chunk.js.map",
   "runtime~main.js": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js",
   "runtime~main.js.map": "/reactnd-project-myreads/static/js/runtime~main.d2f8cf40.js.map",
   "static/media/App.css": "/reactnd-project-myreads/static/media/add.bb9363b8.svg",
@@ -11,6 +11,6 @@
   "static/media/SearchBooks.css": "/reactnd-project-myreads/static/media/arrow-back.3687aa98.svg",
   "static/css/main.30185b3a.chunk.css.map": "/reactnd-project-myreads/static/css/main.30185b3a.chunk.css.map",
   "index.html": "/reactnd-project-myreads/index.html",
-  "precache-manifest.ba25d11b11ad283891f020d7ac93b015.js": "/reactnd-project-myreads/precache-manifest.ba25d11b11ad283891f020d7ac93b015.js",
+  "precache-manifest.0e9b5e3f91d473749afedbece81c14f5.js": "/reactnd-project-myreads/precache-manifest.0e9b5e3f91d473749afedbece81c14f5.js",
   "service-worker.js": "/reactnd-project-myreads/service-worker.js"
 }
